@@ -12,6 +12,9 @@ import LoaderProgress from './LoaderProgress'
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
+import SubsystemA from './pages/SubsystemA.jsx';
+import SubsystemB from './pages/SubsystemB.jsx';
+import SubsystemC from './pages/SubsystemC.jsx';
 import Contact from './pages/Contact.jsx';
 import {useTour} from '@reactour/tour';
 
@@ -26,17 +29,23 @@ function App() {
   return (
     <>
     <div>
+      
        <nav className='nav'>
         <button onClick={() => setIsOpen(true)}>Start Tour</button>
         <Link to="/">Home</Link>
-            
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/SubsysA">Subsystem-A</Link> 
+        <Link to="/SubsysB">Subsystem-Β</Link>
+        <Link to="/SubsysC">Subsystem-C</Link>   
+        <Link to="/about">Subsystem-B</Link>
+        <Link to="/contact">Subsystem-C</Link>
     
         </nav>
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/about" element={<About/>} />
+          <Route path="/subsysA" element={<SubsystemA/>}/>
+          <Route path="/subsysB" element={<SubsystemB/>}/>
+          <Route path="/subsysC" element={<SubsystemC/>}/>
           {/* ### add Contact here as a component  */}
           <Route path="/contact" element={<h2>Contact Page </h2>} />
         </Routes>
