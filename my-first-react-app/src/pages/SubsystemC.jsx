@@ -5,14 +5,15 @@ import "./SubsystemC.css";
 //import React, { Component } from "react";
 
 
-export default function SubsystemC() {
+export default function SubsystemC(noumero2) {
+        
         const randomNumberInRange = (min, max) => {
         return Math.floor(Math.random()
             * (max - min + 1)) + min;
     };      
      
 
-      
+        const noumero =9;
    
         const Ref = useRef(null);
 
@@ -71,7 +72,7 @@ export default function SubsystemC() {
         Ref.current = id;
     };
     function setter() {
-       // setTimer("00:00:10");
+       // setTimer("00:00:10"); αυτο ισως να μην μου δουλευει btw δεν εχω πιστει πως δουλευει
        clearTimer(getDeadTime());
     };
 
@@ -83,6 +84,15 @@ export default function SubsystemC() {
         deadline.setSeconds(deadline.getSeconds() + 10);
         return deadline;
     };
+    function Meteoritis(number){
+    
+        return( <h3 className="blink"
+                    style={{ color: "red" }}>{(number)  > 1 ?"!!!  ΕΙΣΕΡΧΟΜΕΝΟΣ ΜΕΤΕΩΡΙΤΗΣ !!!" : "δεν δουλευει"}
+                  
+                </h3>);
+    
+//γαμω ουτε αυτο δεν δουλευε ικα ιδεν μπορω να καταλαβω το γιατι 
+}
 
     // We can use useEffect so that when the component
     // mount the timer will start as soon as possible
@@ -111,8 +121,8 @@ export default function SubsystemC() {
 
         
     };
-    setInterval(GiveNum,40000)
-    setInterval(useEffect,5000)
+    setInterval(GiveNum,4000)
+   // αυτο ειναι για να κανει reset το χρονομετρο αλλα δεν δουλευει ακομα setInterval(useEffect,5000)
     
     return (
 
@@ -128,6 +138,8 @@ export default function SubsystemC() {
                     style={{ color: "green" }}>
                   !!!  Κινδυνος ΥΨΗΛΗΣ ακτινοβολιας !!!
                 </h3>
+
+        <Meteoritis number={noumero}/>
         <p>Είναι υπεύθηνο για την υποστήριξη ζωής(life support) καθώς και το περιβάλλον κατοικησης ( habitation)</p>
         <p>H ατμοσφαιρικη πίεση αυτή την στιγμή είναι {(Randnum > 5) ? Randnum/2 : Randnum}</p>
         <p>Η  εσωτερικη θερμοκρασια του θερμοκηπιου αυτή την στιγμή είναι {Randnum*5}</p>
